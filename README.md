@@ -1,10 +1,11 @@
 # vinyl-yaml-data
 
+[![NPM version](https://img.shields.io/npm/v/vinyl-yaml-data.svg?style=flat)](https://www.npmjs.com/package/vinyl-yaml-data)
 [![Build Status](https://img.shields.io/travis/shinnn/vinyl-yaml-data.svg?style=flat)](https://travis-ci.org/shinnn/vinyl-yaml-data)
 [![Build status](https://ci.appveyor.com/api/projects/status/4rcpnepnghwekpgv?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/vinyl-yaml-data)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/vinyl-yaml-data.svg?style=flat)](https://coveralls.io/r/shinnn/vinyl-yaml-data)
-[![Dependency Status](https://david-dm.org/shinnn/vinyl-yaml-data.svg?style=flat)](https://david-dm.org/shinnn/vinyl-yaml-data)
-[![devDependency Status](https://david-dm.org/shinnn/vinyl-yaml-data/dev-status.svg?style=flat)](https://david-dm.org/shinnn/vinyl-yaml-data#info=devDependencies)
+[![Dependency Status](https://img.shields.io/david/shinnn/vinyl-yaml-data.svg?style=flat&label=deps)](https://david-dm.org/shinnn/vinyl-yaml-data)
+[![devDependency Status](https://img.shields.io/david/dev/shinnn/vinyl-yaml-data.svg?style=flat&label=devDeps)](https://david-dm.org/shinnn/vinyl-yaml-data#info=devDependencies)
 
 Convert [vinyl](https://github.com/wearefractal/vinyl) objects of [YAML](http://www.yaml.org/) files into plane objects
 
@@ -27,11 +28,9 @@ gulp.task('default', function() {
 
 ## Installation
 
-[![NPM version](https://img.shields.io/npm/v/vinyl-yaml-data.svg?style=flat)](https://www.npmjs.com/package/vinyl-yaml-data)
-
 [Use npm.](https://docs.npmjs.com/cli/install)
 
-```
+```sh
 npm install vinyl-yaml-data
 ```
 
@@ -43,16 +42,18 @@ var vinylYamlData = require('vinyl-yaml-data');
 
 ### vinylYamlData([*options*])
 
+[file.path]: https://github.com/wearefractal/vinyl#optionspath
+
 *options*: `Object`  
 Return: `Object` ([stream.Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform_1))
 
 It returns a transform stream. The stream parses [`file.contents`](https://github.com/wearefractal/vinyl#optionscontents) as YAML, and read back an object which contains the parsed data.
 
-The parsed object will be assigned to the specific object path based on the [`file.path`](https://github.com/wearefractal/vinyl#optionspath). For example,
+The parsed object will be assigned to the specific object path based on the [`file.path`][file.path]. For example,
 
-| `file.path`            | object path          |
+| [file.path]            | object path          |
 | :--------------------- | :------------------- |
-|  foo.yam`              | `foo`                |
+| `foo.yam`              | `foo`                |
 | `foo/bar.yaml`         | `foo.bar`            |
 | `foo/bar/baz.qux.yaml` | `foo.bar['baz.qux']` |
 | `../foo/bar.txt`       | `['..'].foo.bar`     |
@@ -141,6 +142,6 @@ gulp.task('default', ['views']);
 
 ## License
 
-Copyright (c) 2014 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2014 - 2015 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
