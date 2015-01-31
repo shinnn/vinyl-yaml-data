@@ -37,24 +37,24 @@ module.exports = function vinylYamlData(options) {
 
     var self = this;
 
-    function parseYaml(buf, cb) {
+    function parseYaml(buf, done) {
       var result = {};
       var yamlOptions = xtend(options, {
-        filename: path.resolve(file.cwd, path.relative('', file.path)),
-        ext: undefined
+        filename: path.resolve(file.cwd, path.relative('', file.path))
       });
 
       tryStreamPush(self, function() {
-        objectPath.set(result, props, yaml.safeLoad(buf, xtend(options, yamlOptions)));
+        objectPath.set(result, props, yaml.safeLoad(buf, yamlOptions));
         return result;
       });
 
-      cb();
+      done();
     }
 
     if (file.isStream()) {
-      file.contents = file.contents.pipe(new BufferStreams(function(none, buf, cb) {
-        parseYaml(buf, cb);
+      file.contents = file.contents.pipe(new BufferStreams(function(none, buf, done) {
+        parseYaml(buf, done);
+        cb();
       }));
       return;
     }
