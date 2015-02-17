@@ -1,6 +1,6 @@
 {
   "name": "vinyl-yaml-data",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert vinyl objects of YAML files into plane objects",
   "repository": "shinnn/vinyl-yaml-data",
   "author": {
