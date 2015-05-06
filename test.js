@@ -2,7 +2,7 @@
 
 var path = require('path');
 
-var bufferStream = require('simple-bufferstream');
+var stringStream = require('from2-string');
 var File = require('vinyl');
 var test = require('tape');
 var vinylYamlData = require('./');
@@ -42,7 +42,7 @@ test('vinylYamlData()', function(t) {
   })
   .end(new File({
     path: 'foo.yaml',
-    contents: bufferStream(new Buffer('[]'))
+    contents: stringStream('[]')
   }));
 
   vinylYamlData()
@@ -60,13 +60,13 @@ test('vinylYamlData()', function(t) {
   vinylYamlData()
   .on('data', function(data) {
     t.deepEqual(
-      data, {'..': {'0': undefined}},
+      data, {'..': {0: undefined}},
       'should set `undefined` property when the stream emits only an empty buffer.'
     );
   })
   .end(new File({
     path: path.resolve('../0.yaml'),
-    contents: bufferStream(new Buffer(''))
+    contents: stringStream('')
   }));
 
   vinylYamlData()
@@ -121,7 +121,7 @@ test('vinylYamlData()', function(t) {
     cwd: 'foo',
     base: 'bar',
     path: path.resolve('bar/baz.yaml'),
-    contents: bufferStream(new Buffer('"--'))
+    contents: stringStream('"--')
   }));
 
   vinylYamlData()
