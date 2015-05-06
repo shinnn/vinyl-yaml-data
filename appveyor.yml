@@ -15,13 +15,14 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install --production
-  - npm install simple-bufferstream tape vinyl
+  - npm install from2-string tape vinyl --no-bin-links
 
 build: off
 
 test_script:
   - ps: 'node test.js #PowerShell'
-  - cmd: node test.js
+  - node test.js
 
 cache:
-  - node_modules
+  - node_modules -> package.json
+  - '%APPDATA%\npm-cache -> package.json'
