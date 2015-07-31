@@ -21,7 +21,7 @@ gulp.task('default', () => {
     .pipe(vinylYamlData());
     .pipe(new Transform({
       objectMode: true,
-      transform: (obj, enc, cb) => {
+      transform(obj, enc, cb) {
         obj; //=> {person: {name: 'Bob'}}
         cb();
       })
@@ -68,7 +68,7 @@ Path components included in [`file.base`](https://github.com/wearefractal/vinyl#
 const File = require('vinyl');
 const vinylYamlData = require('vinyl-yaml-data');
 
-let vinylYamlStream = vinylYamlData();
+const vinylYamlStream = vinylYamlData();
 
 vinylYamlStream.on('data', data => {
   data; //=> {baz: ['Hello', 'world']}
@@ -124,7 +124,7 @@ const jade = require('gulp-jade');
 const vinylYamlData = require('vinyl-yaml-data');
 const deepExtend = require('deep-extend-stream');
 
-let locals;
+const locals;
 
 gulp.task('data', () => {
   locals = {};
@@ -136,7 +136,7 @@ gulp.task('data', () => {
 
 gulp.task('views', ['data'], () => {
   return gulp.src('views/**/*.jade')
-    .pipe(jade({locals: locals}))
+    .pipe(jade({locals}))
     .pipe(gulp.dest('build'));
 });
 
