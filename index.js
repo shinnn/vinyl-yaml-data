@@ -4,22 +4,21 @@
 */
 'use strict';
 
-var path = require('path');
+const path = require('path');
 
-var BufferStreams = require('bufferstreams');
-var objectPath = require('object-path');
-var replaceExt = require('replace-ext');
-var Transform = require('readable-stream/transform');
-var tryStreamPush = require('try-stream-push');
-var xtend = require('xtend');
-var yaml = require('js-yaml');
+const BufferStreams = require('bufferstreams');
+const objectPath = require('object-path');
+const replaceExt = require('replace-ext');
+const Transform = require('readable-stream/transform');
+const tryStreamPush = require('try-stream-push');
+const yaml = require('js-yaml');
 
 module.exports = function vinylYamlData(options) {
   options = options || {};
 
   return new Transform({
     objectMode: true,
-    transform: function(file, enc, cb) {
+    transform(file, enc, cb) {
       if (file.isNull()) {
         cb();
         return;
@@ -31,33 +30,33 @@ module.exports = function vinylYamlData(options) {
         return;
       }
 
-      var props = path.relative(file.base, file.path).split(path.sep);
+      const props = path.relative(file.base, file.path).split(path.sep);
 
       if (!options.ext) {
         props[props.length - 1] = replaceExt(props[props.length - 1], '');
       }
 
-      var self = this;
-
-      function parseYaml(buf, done) {
-        var result = {};
-        var yamlOptions = xtend(options, {
+      const parseYaml = (buf, done) => {
+        const result = {};
+        const yamlOptions = Object.assign({}, options, {
           filename: path.resolve(file.cwd, path.relative('', file.path))
         });
 
-        tryStreamPush(self, function() {
+        tryStreamPush(this, function parseVinylContentsAsYaml() {
           objectPath.set(result, props, yaml.safeLoad(buf, yamlOptions));
           return result;
         });
 
         done();
-      }
+      };
 
       if (file.isStream()) {
-        file.contents = file.contents.pipe(new BufferStreams(function(none, buf, done) {
-          parseYaml(buf, done);
-          cb();
-        }));
+        file.contents = file.contents.pipe(new BufferStreams(
+          function parseYamlTransform(none, buf, done) {
+            parseYaml(buf, done);
+            cb();
+          }
+        ));
         return;
       }
 

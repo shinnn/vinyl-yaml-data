@@ -1,20 +1,20 @@
-'use strict';
+'use strong';
 
-var path = require('path');
+const path = require('path');
 
-var stringStream = require('from2-string');
-var File = require('vinyl');
-var test = require('tape');
-var vinylYamlData = require('./');
-var yaml = require('js-yaml');
+const stringStream = require('from2-string');
+const File = require('vinyl');
+const test = require('tape');
+const vinylYamlData = require('./');
+const yaml = require('js-yaml');
 
-test('vinylYamlData()', function(t) {
+test('vinylYamlData()', t => {
   t.plan(12);
 
   t.equal(vinylYamlData.name, 'vinylYamlData', 'should have a function name.');
 
   vinylYamlData({schema: yaml.FAILSAFE_SCHEMA})
-  .on('data', function(data) {
+  .on('data', data => {
     t.deepEqual(data, {foo: ['true', '1', '2']}, 'should parse YAML buffer.');
   })
   .end(new File({
@@ -23,7 +23,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('data', function(data) {
+  .on('data', data => {
     t.deepEqual(
       data,
       {bar: {a: 0, b: true}},
@@ -37,7 +37,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('data', function(data) {
+  .on('data', data => {
     t.deepEqual(data, {foo: []}, 'should parse a stream of YAML data.');
   })
   .end(new File({
@@ -46,7 +46,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('data', function(data) {
+  .on('data', data => {
     t.deepEqual(
       data, {foo: {'01': {baz: undefined}}},
       'should set `undefined` property when the file content is an empty buffer.'
@@ -58,7 +58,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('data', function(data) {
+  .on('data', data => {
     t.deepEqual(
       data, {'..': {0: undefined}},
       'should set `undefined` property when the stream emits only an empty buffer.'
@@ -74,7 +74,7 @@ test('vinylYamlData()', function(t) {
   .end(new File({path: path.resolve('foo.yaml')}));
 
   vinylYamlData({ext: true})
-  .on('data', function(data) {
+  .on('data', data => {
     t.deepEqual(
       data, {'..': {'foo.yaml': {a: [true, {b: 'cd'}]}}},
       'should not remove file extenston form the property name when `ext` option is enabled.'
@@ -87,7 +87,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('error', function(err) {
+  .on('error', err => {
     t.equal(
       err.name,
       'YAMLException',
@@ -105,7 +105,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('error', function(err) {
+  .on('error', err => {
     t.equal(
       err.name,
       'YAMLException',
@@ -125,7 +125,7 @@ test('vinylYamlData()', function(t) {
   }));
 
   vinylYamlData()
-  .on('error', function(err) {
+  .on('error', err => {
     t.equal(
       err.name,
       'TypeError',
