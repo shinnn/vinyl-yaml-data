@@ -120,12 +120,12 @@ vinylYamlData()
 
 ```javascript
 const gulp = require('gulp');
-const jade = require('gulp-jade');
+const gulpJade = require('gulp-jade');
 
 const vinylYamlData = require('vinyl-yaml-data');
 const deepExtend = require('deep-extend-stream');
 
-const locals;
+let locals;
 
 gulp.task('data', () => {
   locals = {};
@@ -137,7 +137,7 @@ gulp.task('data', () => {
 
 gulp.task('views', ['data'], () => {
   return gulp.src('views/**/*.jade')
-    .pipe(jade({locals}))
+    .pipe(gulpJade({locals}))
     .pipe(gulp.dest('build'));
 });
 
