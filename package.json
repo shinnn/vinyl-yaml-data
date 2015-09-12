@@ -32,10 +32,8 @@
     "bufferstreams": "^1.1.0",
     "js-yaml": "^3.4.2",
     "object-path": "^0.9.2",
-    "readable-stream": "^2.0.2",
     "replace-ext": "^0.0.1",
-    "try-stream-push": "^1.1.0",
-    "xtend": "^4.0.0"
+    "try-stream-push": "^1.1.0"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^1.0.1",

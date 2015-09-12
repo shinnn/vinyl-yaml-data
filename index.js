@@ -5,11 +5,11 @@
 'use strict';
 
 const path = require('path');
+const Transform = require('stream').Transform;
 
 const BufferStreams = require('bufferstreams');
 const objectPath = require('object-path');
 const replaceExt = require('replace-ext');
-const Transform = require('readable-stream/transform');
 const tryStreamPush = require('try-stream-push');
 const yaml = require('js-yaml');
 
