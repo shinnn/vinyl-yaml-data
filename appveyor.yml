@@ -5,9 +5,7 @@ install:
   - ps: Install-Product node 4
   - npm install
 build: off
-test_script:
-  - ps: 'node test.js #PowerShell'
-  - node test.js
+test_script: node --strong_mode test.js
 cache:
   - node_modules -> package.json
   - '%APPDATA%\npm-cache -> package.json'
