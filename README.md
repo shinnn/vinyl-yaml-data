@@ -7,7 +7,7 @@
 [![Dependency Status](https://img.shields.io/david/shinnn/vinyl-yaml-data.svg?label=deps)](https://david-dm.org/shinnn/vinyl-yaml-data)
 [![devDependency Status](https://img.shields.io/david/dev/shinnn/vinyl-yaml-data.svg?label=devDeps)](https://david-dm.org/shinnn/vinyl-yaml-data#info=devDependencies)
 
-Convert [vinyl](https://github.com/wearefractal/vinyl) objects of [YAML](http://www.yaml.org/) files into plane objects
+Convert [vinyl](https://github.com/gulpjs/vinyl) objects of [YAML](http://www.yaml.org/) files into plane objects
 
 ```javascript
 const gulp = require('gulp');
@@ -29,6 +29,8 @@ gulp.task('default', () => {
 });
 ```
 
+**The latest version requires Node v4+. If you're using Node v0.x, use [v1.1.0](https://github.com/shinnn/vinyl-yaml-data/tree/v1.1.0).**
+
 ## Installation
 
 [Use npm.](https://docs.npmjs.com/cli/install)
@@ -45,24 +47,24 @@ const vinylYamlData = require('vinyl-yaml-data');
 
 ### vinylYamlData([*options*])
 
-[file.path]: https://github.com/wearefractal/vinyl#optionspath
+[file.path]: https://github.com/gulpjs/vinyl#optionspath
 
 *options*: `Object`  
 Return: `Object` ([stream.Transform](https://nodejs.org/api/stream.html#stream_class_stream_transform_1))
 
-It returns a transform stream. The stream parses [`file.contents`](https://github.com/wearefractal/vinyl#optionscontents) as YAML, and read back an object which contains the parsed data.
+It returns a transform stream. The stream parses [`file.contents`](https://github.com/gulpjs/vinyl#optionscontents) as YAML, and read back an object which contains the parsed data.
 
 The parsed object will be assigned to the specific object path based on the [`file.path`][file.path]. For example,
 
 | [file.path]            | object path          |
 | :--------------------- | :------------------- |
-| `foo.yam`              | `foo`                |
+| `foo.yaml`             | `foo`                |
 | `foo/bar.yaml`         | `foo.bar`            |
 | `foo/bar/baz.qux.yaml` | `foo.bar['baz.qux']` |
 | `../foo/bar.txt`       | `['..'].foo.bar`     |
 | `foo/../bar/baz.txt`   | `bar.baz`            |
 
-Path components included in [`file.base`](https://github.com/wearefractal/vinyl#optionsbase) will be omitted from the object path.
+Path components included in [`file.base`](https://github.com/gulpjs/vinyl#optionsbase) will be omitted from the object path.
 
 ```javascript
 const File = require('vinyl');
@@ -113,7 +115,7 @@ vinylYamlData()
 
 ## Example
 
-### Simulate [`_data`](http://jekyllrb.com/docs/datafiles/) directory of [Jekyll](http://jekyllrb.com/)
+### Simulate [`_data`](https://jekyllrb.com/docs/datafiles/) directory of [Jekyll](https://jekyllrb.com/)
 
 [deep-extend-stream](https://github.com/shinnn/deep-extend-stream) helps you to merge multiple YAML data into a single object in a stream.
 
