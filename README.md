@@ -1,11 +1,10 @@
 # vinyl-yaml-data
 
 [![NPM version](https://img.shields.io/npm/v/vinyl-yaml-data.svg)](https://www.npmjs.com/package/vinyl-yaml-data)
-[![Build Status](https://img.shields.io/travis/shinnn/vinyl-yaml-data.svg)](https://travis-ci.org/shinnn/vinyl-yaml-data)
-[![Build status](https://ci.appveyor.com/api/projects/status/4rcpnepnghwekpgv?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/vinyl-yaml-data)
+[![Build Status](https://travis-ci.org/shinnn/vinyl-yaml-data.svg?branch=master)](https://travis-ci.org/shinnn/vinyl-yaml-data)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/vinyl-yaml-data.svg)](https://coveralls.io/r/shinnn/vinyl-yaml-data)
-[![Dependency Status](https://img.shields.io/david/shinnn/vinyl-yaml-data.svg?label=deps)](https://david-dm.org/shinnn/vinyl-yaml-data)
-[![devDependency Status](https://img.shields.io/david/dev/shinnn/vinyl-yaml-data.svg?label=devDeps)](https://david-dm.org/shinnn/vinyl-yaml-data#info=devDependencies)
+[![Dependency Status](https://david-dm.org/shinnn/vinyl-yaml-data.svg)](https://david-dm.org/shinnn/vinyl-yaml-data)
+[![Dependency Status](https://david-dm.org/shinnn/vinyl-yaml-data.svg)](https://david-dm.org/shinnn/vinyl-yaml-data)
 
 Convert [vinyl](https://github.com/gulpjs/vinyl) objects of [YAML](http://www.yaml.org/) files into plane objects
 
