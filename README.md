@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/shinnn/vinyl-yaml-data.svg?branch=master)](https://travis-ci.org/shinnn/vinyl-yaml-data)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/vinyl-yaml-data.svg)](https://coveralls.io/r/shinnn/vinyl-yaml-data)
 [![Dependency Status](https://david-dm.org/shinnn/vinyl-yaml-data.svg)](https://david-dm.org/shinnn/vinyl-yaml-data)
-[![Dependency Status](https://david-dm.org/shinnn/vinyl-yaml-data.svg)](https://david-dm.org/shinnn/vinyl-yaml-data)
+[![devDependency Status](https://david-dm.org/shinnn/vinyl-yaml-data/dev-status.svg)](https://david-dm.org/shinnn/vinyl-yaml-data#info=devDependencies)
 
 Convert [vinyl](https://github.com/gulpjs/vinyl) objects of [YAML](http://www.yaml.org/) files into plane objects
 
@@ -146,6 +146,6 @@ gulp.task('default', ['views']);
 
 ## License
 
-Copyright (c) 2014 - 2015 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2014 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
