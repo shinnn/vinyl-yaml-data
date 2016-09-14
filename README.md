@@ -3,10 +3,10 @@
 [![NPM version](https://img.shields.io/npm/v/vinyl-yaml-data.svg)](https://www.npmjs.com/package/vinyl-yaml-data)
 [![Build Status](https://travis-ci.org/shinnn/vinyl-yaml-data.svg?branch=master)](https://travis-ci.org/shinnn/vinyl-yaml-data)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/vinyl-yaml-data.svg)](https://coveralls.io/r/shinnn/vinyl-yaml-data)
-[![Dependency Status](https://david-dm.org/shinnn/vinyl-yaml-data.svg)](https://david-dm.org/shinnn/vinyl-yaml-data)
-[![devDependency Status](https://david-dm.org/shinnn/vinyl-yaml-data/dev-status.svg)](https://david-dm.org/shinnn/vinyl-yaml-data#info=devDependencies)
+[![dependencies Status](https://david-dm.org/shinnn/vinyl-yaml-data/status.svg)](https://david-dm.org/shinnn/vinyl-yaml-data)
+[![devDependencies Status](https://david-dm.org/shinnn/vinyl-yaml-data/dev-status.svg)](https://david-dm.org/shinnn/vinyl-yaml-data?type=dev)
 
-Convert [vinyl](https://github.com/gulpjs/vinyl) objects of [YAML](http://www.yaml.org/) files into plane objects
+Convert [vinyl](https://github.com/gulpjs/vinyl) objects of [YAML](http://www.yaml.org/) files into plain objects
 
 ```javascript
 const gulp = require('gulp');
