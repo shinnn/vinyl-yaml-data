@@ -1,13 +1,13 @@
 {
   "name": "vinyl-yaml-data",
   "version": "2.0.0",
-  "description": "Convert vinyl objects of YAML files into plane objects",
+  "description": "Convert vinyl objects of YAML files into plain objects",
   "repository": "shinnn/vinyl-yaml-data",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
     "pretest": "eslint --config @shinnn/node index.js test.js",
-    "test": "node --strong_mode test.js | tap-spec",
-    "coverage": "node --strong_mode node_modules/.bin/istanbul cover test.js",
+    "test": "node test.js | tap-spec",
+    "coverage": "istanbul cover test.js",
     "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
   "license": "MIT",
